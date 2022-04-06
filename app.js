@@ -619,5 +619,13 @@ let searched = () => {
 
 
     });
+    filterItem.innerHTML = ""
+    let item = objval.map((x) => {
+        filterItem.innerHTML += `<div class="col-md-2 text-center border box-shadow p-2">${x.id}</div>
+        <div class="col-md-2 text-center border box-shadow p-2">${x.userId}</div>
+        <div class="col-md-3 text-center border box-shadow p-2">${x.title}</div>
+        <div class="col-md-5 text-center border box-shadow p-2">${x.body}</div>`
+
+    })
     console.log(objval)
 }
