@@ -599,25 +599,25 @@ let obj = [{
         body: "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
     }
 ]
+let selected = document.getElementById("selected")
 
-
-
+let init = () => {
+    let extractKeys = Object.keys(obj[0])
+    let maping = extractKeys.map((a) => {
+        selected.innerHTML += `<option value="${a}">${a}</option>`
+    })
+}
+init()
 
 
 
 let filterItem = document.getElementById("filterItem")
 let searched = () => {
     let searchs = document.getElementById("search").value.toLowerCase()
-    let selected = document.getElementById("selected").value
     let objval = obj.filter((a) => {
-        if (searchs == a[selected].toString().match(searchs)) {
-            return console.log(a)
-                // filterItem.innerHTML += a
-        } else {
-            return console.log("not match")
-        }
+        return typeof a[selected.value] == "number" ? a[selected.value] == searchs : searchs == a[selected.value].match(searchs)
+
 
     });
+    console.log(objval)
 }
-
-// console.log(searchs.value)
